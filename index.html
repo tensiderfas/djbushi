@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ BUSHI - Официальный сайт</title>
+  <style>
+    /* Общие стили */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: radial-gradient(circle at center, #0d0d1a, #000 80%);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Навигационная панель */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: rgba(10, 10, 20, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .navbar h1 {
+      font-size: 24px;
+      color: #00caff;
+    }
+
+    .menu button {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .menu button:hover {
+      background: #00caff;
+      color: #000;
+    }
+
+    /* Секции */
+    .sections {
+      padding: 20px;
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 0.5s;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    /* Космический фон */
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://source.unsplash.com/1920x1080/?space,galaxy') no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #00caff;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #d4d4d4;
+    }
+
+    a {
+      color: #00caff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Навигационная панель -->
+  <div class="navbar">
+    <h1>DJ BUSHI</h1>
+    <div class="menu">
+      <button data-section="home">Главная</button>
+      <button data-section="about">Обо мне</button>
+      <button data-section="music">Музыка</button>
+      <button data-section="contact">Контакты</button>
+    </div>
+  </div>
+
+  <!-- Секции -->
+  <div class="sections">
+    <section id="home" class="active">
+      <h2>Добро пожаловать в мир DJ BUSHI</h2>
+      <p>Погрузитесь в атмосферу космической музыки и вдохновения.</p>
+    </section>
+
+    <section id="about">
+      <h2>О DJ BUSHI</h2>
+      <p>Я — DJ BUSHI, музыкант из Казахстана. Создаю уникальные треки в стиле phonk и электронной музыки.</p>
+    </section>
+
+    <section id="music">
+      <h2>Музыка</h2>
+      <p>Слушайте мои треки на популярных музыкальных платформах:</p>
+      <ul>
+        <li><a href="https://music.yandex.ru/album/33462838" target="_blank">Yandex Music</a></li>
+        <li><a href="https://open.spotify.com/album/4qWGIBqGQo5uBrbjNkiRSv" target="_blank">Spotify</a></li>
+        <li><a href="https://vk.com/vkmusic" target="_blank">VK Music</a></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Контакты</h2>
+      <p>Хотите сотрудничать? Напишите мне: <a href="mailto:djbushimusic@mail.ru">djbushimusic@mail.ru</a></p>
+    </section>
+  </div>
+
+  <script>
+    // Логика переключения разделов
+    const buttons = document.querySelectorAll('.menu button');
+    const sections = document.querySelectorAll('section');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-section');
+
+        // Скрываем все секции
+        sections.forEach(section => section.classList.remove('active'));
+
+        // Показываем выбранную секцию
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
